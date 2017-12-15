@@ -8,7 +8,7 @@ use AntiMattr\GoogleBundle\Maps\MapInterface;
 
 class MapsHelper extends Helper
 {
-    private $manager;
+    protected $manager;
 
     public function __construct(MapsManager $manager)
     {

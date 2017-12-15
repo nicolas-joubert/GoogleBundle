@@ -7,8 +7,8 @@ use Doctrine\Common\Collections\Collection;
 
 class MapsManager
 {
-    private $config = array();
-    private $maps = array();
+    protected $config = array();
+    protected $maps = array();
 
     public function __construct(array $config = array())
     {

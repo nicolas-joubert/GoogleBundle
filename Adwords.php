@@ -9,9 +9,9 @@ class Adwords
 {
     const CONVERSION_KEY = 'google_adwords/conversion';
 
-    private $activeConversion;
-    private $container;
-    private $conversions;
+    protected $activeConversion;
+    protected $container;
+    protected $conversions;
 
     public function __construct(ContainerInterface $container, array $conversions = array())
     {
@@ -27,7 +27,7 @@ class Adwords
         if (array_key_exists($key, $this->conversions)) {
             $this->container->get('session')->set(self::CONVERSION_KEY, $key);
         }
-    }	
+    }
 
     /**
      * @return Conversion $conversion

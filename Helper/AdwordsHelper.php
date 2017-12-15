@@ -7,7 +7,7 @@ use Symfony\Component\Templating\Helper\Helper;
 
 class AdwordsHelper extends Helper
 {
-    private $adwords;
+    protected $adwords;
 
     public function __construct(Adwords $adwords)
     {

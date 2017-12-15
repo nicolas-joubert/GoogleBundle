@@ -4,10 +4,10 @@ namespace AntiMattr\GoogleBundle\Analytics;
 
 class CustomVariable
 {
-    private $index;
-    private $name;
-    private $value;
-    private $scope = 1;
+    protected $index;
+    protected $name;
+    protected $value;
+    protected $scope = 1;
 
     public function __construct($index = null, $name = null, $value = null, $scope = 1)
     {
@@ -63,9 +63,9 @@ class CustomVariable
         }
         if (isset($data['value'])) {
             $this->value = $data['value'];
-        }        
+        }
         if (isset($data['scope'])) {
             $this->scope = $data['scope'];
         }
-    }       
+    }
 }

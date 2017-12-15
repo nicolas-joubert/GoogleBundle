@@ -693,7 +693,7 @@ class Analytics
      *
      * @throws InvalidArgumentException
      */
-    private function isValidConfigKey($trackerKey)
+    protected function isValidConfigKey($trackerKey)
     {
         if (!array_key_exists($trackerKey, $this->trackers)) {
             throw new \InvalidArgumentException(sprintf('There is no tracker configuration assigned with the key "%s".', $trackerKey));
@@ -706,7 +706,7 @@ class Analytics
      * @param string $property
      * @param string $value
      */
-    private function setTrackerProperty($tracker, $property, $value)
+    protected function setTrackerProperty($tracker, $property, $value)
     {
         if ($this->isValidConfigKey($tracker)) {
             $this->trackers[$tracker][$property] = $value;
@@ -719,7 +719,7 @@ class Analytics
      *
      * @return mixed
      */
-    private function getTrackerProperty($tracker, $property)
+    protected function getTrackerProperty($tracker, $property)
     {
         if (!$this->isValidConfigKey($tracker)) {
             return;
@@ -734,7 +734,7 @@ class Analytics
      * @param string $key
      * @param mixed $value
      */
-    private function add($key, $value)
+    protected function add($key, $value)
     {
         $bucket = $this->container->get('session')->get($key, array());
         $bucket[] = $value;
@@ -746,7 +746,7 @@ class Analytics
      *
      * @return boolean $hasKey
      */
-    private function has($key)
+    protected function has($key)
     {
         if (!$this->sessionAutoStarted && !$this->container->get('session')->isStarted()) {
             return false;
@@ -761,7 +761,7 @@ class Analytics
      *
      * @return array $value
      */
-    private function get($key)
+    protected function get($key)
     {
         return $this->container->get('session')->get($key, array());
     }
@@ -771,7 +771,7 @@ class Analytics
      *
      * @return array $value
      */
-    private function getOnce($key)
+    protected function getOnce($key)
     {
         $value = $this->container->get('session')->get($key, array());
         $this->container->get('session')->remove($key);
@@ -781,7 +781,7 @@ class Analytics
     /**
      * @return array[] AntiMattr\GoogleBundle\Analytics\Item $items
      */
-    private function getItemsFromSession()
+    protected function getItemsFromSession()
     {
         $itemArray = $this->get(self::ITEMS_KEY);
         $hydratedItems = array();
@@ -802,7 +802,7 @@ class Analytics
      *
      * @return array[] AntiMattr\GoogleBundle\Analytics\Impression $impressions
      */
-    private function getImpressionsFromSession($action = '')
+    protected function getImpressionsFromSession($action = '')
     {
         $impressionArray = $this->get(self::EC_IMPRESSIONS_KEY. '/' . $action);
         $hydratedImpressions = array();
@@ -823,7 +823,7 @@ class Analytics
      *
      * @return array[] AntiMattr\GoogleBundle\Analytics\Product $products
      */
-    private function getProductsFromSession($action = '')
+    protected function getProductsFromSession($action = '')
     {
         $productArray = $this->get(self::EC_PRODUCTS_KEY. '/' . $action);
         $hydratedProducts = array();
@@ -842,7 +842,7 @@ class Analytics
     /**
      * @return AntiMattr\GoogleBundle\Analytics\Transaction $transaction
      */
-    private function getTransactionFromSession()
+    protected function getTransactionFromSession()
     {
         $transactionArray = $this->container->get('session')->get(self::TRANSACTION_KEY);
         if (empty($transactionArray) || is_object($transactionArray)) {

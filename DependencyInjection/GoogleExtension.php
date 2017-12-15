@@ -40,7 +40,7 @@ class GoogleExtension extends Extension
      * @param array            $configs
      * @param ContainerBuilder $container
      */
-    private function adwordsLoad(array $configs, ContainerBuilder $container)
+    protected function adwordsLoad(array $configs, ContainerBuilder $container)
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('adwords.xml');
@@ -56,7 +56,7 @@ class GoogleExtension extends Extension
      * @param array            $configs
      * @param ContainerBuilder $container
      */
-    private function analyticsLoad(array $configs, ContainerBuilder $container)
+    protected function analyticsLoad(array $configs, ContainerBuilder $container)
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('analytics.xml');
@@ -93,7 +93,7 @@ class GoogleExtension extends Extension
      * @param array            $configs
      * @param ContainerBuilder $container
      */
-    private function mapsLoad(array $configs, ContainerBuilder $container)
+    protected function mapsLoad(array $configs, ContainerBuilder $container)
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('maps.xml');

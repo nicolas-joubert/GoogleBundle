@@ -4,9 +4,9 @@ namespace AntiMattr\GoogleBundle\Adwords;
 
 class Conversion
 {
-    private $id;
-    private $label;
-    private $value;
+    protected $id;
+    protected $label;
+    protected $value;
 
     public function __construct($id, $label, $value)
     {

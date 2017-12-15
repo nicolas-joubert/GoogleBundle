@@ -6,7 +6,7 @@ use AntiMattr\GoogleBundle\Helper\AdwordsHelper;
 
 class AdwordsExtension extends \Twig_Extension
 {
-    private $adwordsHelper;
+    protected $adwordsHelper;
 
     public function __construct(AdwordsHelper $adwordsHelper)
     {

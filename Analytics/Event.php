@@ -7,10 +7,10 @@ namespace AntiMattr\GoogleBundle\Analytics;
  */
 class Event
 {
-    private $action;
-    private $category;
-    private $label;
-    private $value;
+    protected $action;
+    protected $category;
+    protected $label;
+    protected $value;
 
     public function __construct($category = null, $action = null, $label = null, $value = null)
     {
@@ -72,7 +72,7 @@ class Event
     {
         if (isset($data['action'])) {
             $this->action = $data['action'];
-        }        
+        }
         if (isset($data['category'])) {
             $this->category = $data['category'];
         }

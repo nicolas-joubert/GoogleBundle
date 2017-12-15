@@ -6,7 +6,7 @@ use AntiMattr\GoogleBundle\Helper\MapsHelper;
 
 class MapsExtension extends \Twig_Extension
 {
-    private $mapsHelper;
+    protected $mapsHelper;
 
     public function __construct(MapsHelper $mapsHelper)
     {
