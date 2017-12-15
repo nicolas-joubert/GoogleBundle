@@ -20,16 +20,16 @@ class Analytics
     const TRANSACTION_KEY      = 'google_analytics/transaction';
     const ITEMS_KEY            = 'google_analytics/items';
 
-    private $container;
-    private $customVariables = array();
-    private $enhancedEcommerce = false;
-    private $pageViewsWithBaseUrl = true;
-    private $sessionAutoStarted = false;
-    private $trackers;
-    private $whitelist;
-    private $api_key;
-    private $client_id;
-    private $table_id;
+    protected $container;
+    protected $customVariables = array();
+    protected $enhancedEcommerce = false;
+    protected $pageViewsWithBaseUrl = true;
+    protected $sessionAutoStarted = false;
+    protected $trackers;
+    protected $whitelist;
+    protected $api_key;
+    protected $client_id;
+    protected $table_id;
 
     public function __construct(
         ContainerInterface $container,
@@ -751,7 +751,7 @@ class Analytics
         if (!$this->sessionAutoStarted && !$this->container->get('session')->isStarted()) {
             return false;
         }
-        
+
         $bucket = $this->container->get('session')->get($key, array());
         return !empty($bucket);
     }

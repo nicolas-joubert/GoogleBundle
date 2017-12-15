@@ -6,7 +6,7 @@ use AntiMattr\GoogleBundle\Helper\AnalyticsHelper;
 
 class AnalyticsExtension extends \Twig_Extension
 {
-    private $analyticsHelper;
+    protected $analyticsHelper;
 
     public function __construct(AnalyticsHelper $analyticsHelper)
     {

@@ -8,10 +8,10 @@ use Symfony\Component\Templating\Helper\Helper;
 
 class AnalyticsHelper extends Helper
 {
-    private $analytics;
-    private $sourceHttps;
-    private $sourceHttp;
-    private $sourceEndpoint;
+    protected $analytics;
+    protected $sourceHttps;
+    protected $sourceHttp;
+    protected $sourceEndpoint;
 
     public function __construct(Analytics $analytics, $sourceHttps, $sourceHttp, $sourceEndpoint)
     {
@@ -153,17 +153,17 @@ class AnalyticsHelper extends Helper
     {
         return $this->analytics->getTrackers($trackers);
     }
-    
+
     public function getApiKey()
     {
         return $this->analytics->getApiKey();
     }
-    
+
     public function getClientId()
     {
         return $this->analytics->getClientId();
     }
-    
+
     public function getTableId()
     {
         return $this->analytics->getTableId();
